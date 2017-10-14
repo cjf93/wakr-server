@@ -16,7 +16,7 @@ type MainController struct {
 func (c *MainController) Get() {
 	c.Data["clock"] = clock
 	c.Data["Time"] = time.Now()
-	c.TplName = "index.tpl"
+	c.TplName = "index.html"
 }
 func (c *MainController) PassButton1() {
 

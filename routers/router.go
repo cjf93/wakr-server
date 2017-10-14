@@ -21,7 +21,7 @@ func init() {
 	beego.Router("/hacaidomoneda", &controllers.MainController{}, "get:Hacaidomoneda")
 	beego.Router("/cajaabierta", &controllers.MainController{}, "get:Cajaabierta")
 	beego.Router("/cajacerrada", &controllers.MainController{}, "get:Cajacerrada")
-
+	beego.Router("/checktimepassed", &controllers.MainController{}, "get:Checktimepassed")
 	//toggle off
 	//getinfo donated saved goal
 	// /firealarm ?(yo activo sonido)
