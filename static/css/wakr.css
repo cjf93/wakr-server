@@ -1,0 +1,179 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,body {
+  width: 480px;
+  height: 320px;
+  padding: 0;
+  margin: 0;
+  overflow:hidden;
+}
+
+#mainDiv {
+  width: 480px;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#alarmDiv {
+  width: 480px;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.mainHour {
+  width: 480px;
+  font-size: 100px;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  text-shadow: 2px 2px #333;
+}
+
+.btnAlarm {
+  position: absolute;
+  left: 205px;
+  top: 160px;
+  width: 70px;
+}
+
+.donated {
+  position: absolute;
+  top: 245px;
+  left: 0;
+  font-size: 25px;
+  color: white;
+  padding: 15px;
+  font-weight: 900;
+  text-shadow: 2px 2px #333;
+}
+
+.saved {
+  position: absolute;
+  top: 245px;
+  right: 0;
+  font-size: 25px;
+  color: white;
+  text-align: right;
+  padding: 15px;
+  font-weight: 900;
+  text-shadow: 2px 2px #333;
+}
+
+.alarmHour {
+  width: 480px;
+  font-size: 100px;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 120px;
+  text-shadow: 2px 2px #333;
+}
+
+.hourUp {
+  position: absolute;
+  left: 130px;
+  top: 70px;
+  height: 70px;
+}
+
+.hourDown {
+  position: absolute;
+  left: 130px;
+  top: 225px;
+  height: 70px;
+  transform: rotate(180deg);
+}
+
+.minUp {
+  position: absolute;
+  left: 280px;
+  top: 70px;
+  height: 70px;
+}
+
+.minDown {
+  position: absolute;
+  left: 280px;
+  top: 225px;
+  height: 70px;
+  transform: rotate(180deg);
+}
+
+.okAlarm {
+  position: absolute;
+  top: 250px;
+  right: 0;
+  font-size: 40px;
+  color: white;
+  text-align: right;
+  padding: 15px;
+  font-weight: 900;
+  text-shadow: 2px 2px #333;
+}
+
+.toggleOffAlarm {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  font-size: 40px;
+  color: white;
+  padding: 15px;
+  font-weight: 900;
+  text-shadow: 2px 2px #333;
+}
+
+.alarmTitle, .gmTitle {
+  width: 480px;
+  font-size:  50px;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  text-shadow: 2px 2px #333;
+}
+
+.snoozeBtn {
+  position: absolute;
+  left: 215px;
+  top: 205px;
+  height: 70px;
+}
+
+.gmHour {
+  width: 480px;
+  font-size: 100px;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 90px;
+  text-shadow: 2px 2px #333;
+}
+
+.goal {
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  background: rgba(0,0,0,0.3);
+  padding: 5px;
+  color: white;
+}

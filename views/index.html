@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Wakr!</title>
+        <script>
+            //"Alarm":"2017-10-14T23:06:15.0364149+02:00"
+            var info = {{.clock}}
+            var str = info.Alarm.split("T");
+            var alarm = str[1].substring(0, 5);
+            console.log(alarm)
+            var str2 = {{.Time}}.split("T");
+            var time = str2[1].substring(0, 5);
+            console.log(time)
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="/static/js/wakr.js"></script>
+        <script src="/static/js/bubbly-bg.js"></script>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/wakr.css">
+    </head>
+    <body>
+        <canvas id="bgCanvas" width="480px" height="320px"></canvas>
+
+        <script>
+            bubbly({
+                canvas: document.querySelector("#bgCanvas")
+            });
+        </script>
+
+        <div id="mainDiv" style="display: block">
+            <div class="goal">
+                    GOAL: 0/14
+            </div>
+            <div class="mainHour">06:30</div>
+            <img src="/static/img/004-clock.png" alt="" class="btnAlarm" onclick="showAlarmSettings()">
+            <div class="donated">
+                DONATED: <span id="dQty" style="font-size: 40px">25</span>
+            </div>
+            <div class="saved">
+                SAVED: <span id="sQty" style="font-size: 40px">0</span>
+            </div>
+        </div>
+
+        <div id="alarmDiv" style="display: none">
+            <img src="/static/img/003-next.png" alt="" class="hourUp" onclick="hourUp()">
+            <img src="/static/img/003-next.png" alt="" class="hourDown" onclick="hourDown()">
+            <img src="/static/img/003-next.png" alt="" class="minUp" onclick="minUp()">
+            <img src="/static/img/003-next.png" alt="" class="minDown" onclick="minDown()">
+            <div class="alarmTitle">SET ALARM</div>
+            <div class="alarmHour">06:30</div>
+            <div class="okAlarm" onclick="toggleOn()">ON</div>
+            <div class="toggleOffAlarm" onclick="toggleOff()">OFF</div>
+        </div>
+
+        <div id="ringDiv" style="display: none">
+            <img src="/static/img/002-sleep.png" alt="" class="snoozeBtn">
+            <div class="gmTitle">GOOD MORNING!</div>
+            <div class="gmHour">06:30</div>
+        </div>
+
+        <script>
+        $('.mainHour').text(time);
+        </script>
+    </body>
+</html>

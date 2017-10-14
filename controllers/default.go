@@ -9,6 +9,10 @@ import (
 
 var clock controllers.Clock
 
+func init() {
+	clock.Init()
+}
+
 type MainController struct {
 	beego.Controller
 }
@@ -19,54 +23,68 @@ func (c *MainController) Get() {
 	c.TplName = "index.html"
 }
 func (c *MainController) PassButton1() {
-
+	c.ServeJSON()
 }
 func (c *MainController) PassButton2() {
-
+	c.ServeJSON()
 }
 func (c *MainController) PassButton3() {
-
+	c.ServeJSON()
 }
 
 //Done
 func (c *MainController) HourUp() {
-	clock.HourUp()
+	clock.AddHourToAlarm()
+	c.ServeJSON()
 }
 
 //Done
 func (c *MainController) HourDown() {
-	clock.HourDown()
+	clock.SubstractHourToAlarm()
+	c.ServeJSON()
 }
 
 //Done
 func (c *MainController) MinuteUp() {
-	clock.MinuteUp()
+	clock.AddMinuteToAlarm()
+	c.ServeJSON()
 }
 
 //Done
 func (c *MainController) MinuteDown() {
-	clock.MinuteDown()
+	clock.SubstractMinuteToAlarm()
+	c.ServeJSON()
 }
 
 //Done
 func (c *MainController) Snooze() {
 	clock.Snooze()
+	c.ServeJSON()
 }
 func (c *MainController) Toggleoff() {
 	clock.AlarmFlag = false
+	c.ServeJSON()
 }
 func (c *MainController) Getinfo() {
-	c.Data["clock"] = clock
+	c.Data["json"] = clock
+	c.ServeJSON()
 }
 func (c *MainController) Firealarm() {
-	clock.Firealarm()
+	clock.FireAlarm()
+	c.ServeJSON()
 }
 func (c *MainController) Hacaidomoneda() {
-
+	c.ServeJSON()
 }
 func (c *MainController) Cajaabierta() {
 	clock.CajaAbierta = false
+	c.ServeJSON()
 }
 func (c *MainController) Cajacerrada() {
 	clock.CajaAbierta = false
+	c.ServeJSON()
+}
+func (c *MainController) Checktimepassed() {
+	//TODO:.....
+	c.ServeJSON()
 }
