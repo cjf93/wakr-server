@@ -190,7 +190,7 @@ function showGame() {
         startGame()
         window.setTimeout(function() {
             $.get("http://localhost:8080/checktimepassed")
-        }, 1000 * 60 * 5)
+        }, 1000 * 30 * 1)
     });
 }
 
