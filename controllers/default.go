@@ -23,12 +23,15 @@ func (c *MainController) Get() {
 	c.TplName = "index.html"
 }
 func (c *MainController) PassButton1() {
+	clock.ButtonPressed()
 	c.ServeJSON()
 }
 func (c *MainController) PassButton2() {
+	clock.Button2Pressed()
 	c.ServeJSON()
 }
 func (c *MainController) PassButton3() {
+	clock.Button3Pressed()
 	c.ServeJSON()
 }
 
@@ -65,7 +68,15 @@ func (c *MainController) Toggleoff() {
 	clock.AlarmFlag = false
 	c.ServeJSON()
 }
+func (c *MainController) Toggleon() {
+	clock.AlarmFlag = true
+	c.ServeJSON()
+}
 func (c *MainController) Getinfo() {
+	if time.Now().Unix() > clock.Alarm.Unix() && clock.AlarmFlag {
+		clock.FireAlarm()
+		clock.AlarmFlag = false
+	}
 	c.Data["json"] = clock
 	c.ServeJSON()
 }
@@ -86,5 +97,9 @@ func (c *MainController) Cajacerrada() {
 }
 func (c *MainController) Checktimepassed() {
 	//TODO:.....
+	c.ServeJSON()
+}
+func (c *MainController) Stopalarm() {
+	clock.StopAlarm()
 	c.ServeJSON()
 }

@@ -14,21 +14,12 @@ html,body {
   overflow:hidden;
 }
 
-#mainDiv {
+#mainDiv, #gameDiv, #ringDiv, #gameDiv {
   width: 480px;
   height: 320px;
   position: absolute;
   top: 0;
   left: 0;
-}
-
-#alarmDiv {
-  width: 480px;
-  height: 320px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
 }
 
 .mainHour {
@@ -138,7 +129,7 @@ html,body {
   text-shadow: 2px 2px #333;
 }
 
-.alarmTitle, .gmTitle {
+.alarmTitle, .gmTitle, .gameTitle {
   width: 480px;
   font-size:  50px;
   font-weight: 900;
@@ -176,4 +167,11 @@ html,body {
   background: rgba(0,0,0,0.3);
   padding: 5px;
   color: white;
+}
+
+.game1, .game2, .game3 {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  height: 150px;
 }
