@@ -24,6 +24,7 @@ func init() {
 	beego.Router("/cajacerrada", &controllers.MainController{}, "get:Cajacerrada")
 	beego.Router("/checktimepassed", &controllers.MainController{}, "get:Checktimepassed")
 	beego.Router("/stopalarm", &controllers.MainController{}, "get:Stopalarm")
+	beego.Router("/shameseen", &controllers.MainController{}, "get:Shameseen")
 
 	//toggle off
 	//getinfo donated saved goal

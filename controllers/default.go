@@ -85,10 +85,15 @@ func (c *MainController) Firealarm() {
 	c.ServeJSON()
 }
 func (c *MainController) Hacaidomoneda() {
+	clock.MonedaCaida = true
 	c.ServeJSON()
 }
 func (c *MainController) Cajaabierta() {
-	clock.CajaAbierta = false
+	clock.CajaAbierta = true
+	if !clock.Catmode {
+		clock.StealPaypal()
+		clock.Shame = true
+	}
 	c.ServeJSON()
 }
 func (c *MainController) Cajacerrada() {
@@ -96,10 +101,16 @@ func (c *MainController) Cajacerrada() {
 	c.ServeJSON()
 }
 func (c *MainController) Checktimepassed() {
-	//TODO:.....
+	if !clock.CodeCorrect {
+		clock.StealCoin()
+	}
 	c.ServeJSON()
 }
 func (c *MainController) Stopalarm() {
 	clock.StopAlarm()
+	c.ServeJSON()
+}
+func (c *MainController) Shameseen() {
+	clock.Shame = false
 	c.ServeJSON()
 }

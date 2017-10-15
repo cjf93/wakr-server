@@ -54,7 +54,7 @@
         </div>
 
         <div id="ringDiv" style="display: none">
-            <img src="/static/img/002-sleep.png" alt="" class="snoozeBtn">
+            <img src="/static/img/002-sleep.png" alt="" class="snoozeBtn" onclick="snooze()">
             <div class="gmTitle" onclick="showGame()">GOOD MORNING!</div>
             <div class="gmHour" onclick="showGame()">06:30</div>
         </div>
@@ -66,6 +66,9 @@
                 <img src="/static/img/triangulo.png" class="game3" onclick="game3()"></img>
         </div>
 
+        <div id="shameDiv">
+            <img src="/static/img/shame.gif" style="width:480px; height: 320px" alt="" onclick="shameSeen()">
+        </div>
         <script>
         $('.mainHour').text(time);
         $('.gmHour').text(time)

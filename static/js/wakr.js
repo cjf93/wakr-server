@@ -28,7 +28,7 @@ window.setInterval(incMinTime, 1000*60)
 function getInfo() {
     // TODO: get info
     $.get( "http://localhost:8080/getinfo", function( data ) {
-        if (info.AlarmRinging && !data.AlarmRinging) {
+        if (info.AlarmRinging && !data.AlarmRinging && !data.AlarmFlag) {
             console.log("333")
             console.log(info)
             console.log(data)
@@ -39,6 +39,19 @@ function getInfo() {
             console.log(info)
             console.log(data)
             showRing();
+        }
+        if (!info.CodeCorrect && data.CodeCorrect) {
+            $('#gameDiv').hide(0, function() {
+                $('#mainDiv').show(0)
+            });
+        }
+        if (!info.Shame && data.Shame) {
+            $('#gameDiv').hide(0, function() {
+                $('#mainDiv').hide(0)
+                $('#ringDiv').hide(0)
+                $('#alarmDiv').hide(0)
+                $('#shameDiv').show(0)
+            });
         }
 
         console.log(data)
@@ -170,10 +183,14 @@ function game3() {
 
 function showGame() {
     $('#ringDiv').hide(0, function() {
+        $.get("http://localhost:8080/stopalarm")
         alarmRing.pause()
         alarmRing.currentTime = 0;
         $('#gameDiv').show(0)
         startGame()
+        window.setTimeout(function() {
+            $.get("http://localhost:8080/checktimepassed")
+        }, 1000 * 60 * 5)
     });
 }
 
@@ -190,6 +207,25 @@ function startGame() {
         $('.' + choice).css('left', 40 + 120 * i);
         console.log('.' + choice)
     }
+}
+function snooze() {
+    alarmRing.pause()
+    alarmRing.currentTime = 0;
+
+    $('#ringDiv').hide(0, function() {
+        $('#mainDiv').show(0)
+    });
+
+    $.get( "http://localhost:8080/snooze")
+
+}
+
+function shameSeen() {
+    $.get("http://localhost:8080/shameseen")
+
+    $('#shameDiv').hide(0, function() {
+        $('#mainDiv').show(0)
+    });
 }
 
 $( function() {
